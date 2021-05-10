@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Identikit</title>
+
+    <style>
+        #controls {
+            text-align: center;
+            width: 600px;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+
+        #controls button {
+            font-family: sans-serif;
+            border: 1px solid black;
+            display: inline-block;
+            cursor: pointer;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        #controls button:hover {
+            background-color: yellow;
+        }
+
+        #face {
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            background-image: url(face.svg);
+            background-size: contain;
+            position: relative;
+        }
+
+        #eye_left, #eye_right {
+            position: absolute;
+            width: 50px;
+        }
+
+        #mouth {
+            position: absolute;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="controls">
+        <button id="eyes_up_btn">move eyes up</button>
+        <button id="eyes_down_btn">move eyes down</button>
+        <button id="eyes_together_btn">move eyes closer together</button>
+        <button id="eyes_apart_btn">move eyes further apart</button>
+        <button id="hollow_eyes_btn">hollow eyes</button>
+        <button id="solid_eyes_btn">solid eyes</button>
+        <button id="no_right_eye_btn">no right eye</button>
+        <button id="mouth_up_btn">move mouth up</button>
+        <button id="mouth_down_btn">move mouth down</button>
+        <button id="happy_mouth_btn">happy mouth</button>
+        <button id="sad_mouth_btn">sad mouth</button>
+        <button id="reset_btn">reset face</button>
+    </div>
+
+    <div id="face">
+        <img id="eye_left" src="eye_solid.svg" />
+        <img id="eye_right" src="eye_solid.svg" />
+        <img id="mouth" src="mouth_happy.svg" />
+    </div>
+
+    <script>
+        // coordinate variables
+        var eye_left_x = 100;
+        var eye_left_y = 100;
+        var eye_right_x = 250;
+        var eye_right_y = 100;
+
+        // set initial positions
+        document.getElementById('eye_left').style.left = eye_left_x + 'px';
+        document.getElementById('eye_left').style.top = eye_left_y + 'px';
+        document.getElementById('eye_right').style.left = eye_right_x + 'px';
+        document.getElementById('eye_right').style.top = eye_right_y + 'px';
+
+        // move eyes up event listener
+        document.getElementById('eyes_up_btn').addEventListener('click', () => {
+            eye_left_y -= 10;
+            document.getElementById('eye_left').style.top = eye_left_y + 'px';
+            eye_right_y -= 10;
+            document.getElementById('eye_right').style.top = eye_right_y + 'px';
+        });
+        
+        // move eyes down event listener
+        document.getElementById('eyes_down_btn').addEventListener('click', () => {
+            eye_left_y += 10;
+            document.getElementById('eye_left').style.top = eye_left_y + 'px';
+            eye_right_y += 10;
+            document.getElementById('eye_right').style.top = eye_right_y +'px';
+        });
+        
+        // move eyes closer event listener
+        document.getElementById('eyes_together_btn').addEventListener('click', () => {
+            eye_left_x += 10;
+            document.getElementById('eye_left').style.left = eye_left_x + 'px';
+            eye_right_x -= 10;
+            document.getElementById('eye_right').style.left = eye_right_x + 'px';
+        });
+    </script>
+
+</body>
+</html>

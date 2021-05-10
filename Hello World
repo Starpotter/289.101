@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Hello World Example</title>
+    </head>
+    <body>
+        <h1>My First JavaScript File</h1>
+        <script>
+            alert('Hello world');
+        </script>
+    </body>
+</html>
